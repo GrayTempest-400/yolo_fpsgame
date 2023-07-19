@@ -244,7 +244,7 @@ def loop(data):
 
             image = Capturer.backup(data[region])  # 如果句柄截图是黑色, 不能正常使用, 可以使用本行的截图方法
             t2 = time.perf_counter_ns()
-            final_aims = detect(image , show = init[show])  # 目标检测, 得到截图坐标系内识别到的目标和标注好的图片(无需展示图片时img为none)
+            final_aims = detect(image , show_init = init[show])  # 目标检测, 得到截图坐标系内识别到的目标和标注好的图片(无需展示图片时img为none)
 
             t3 = time.perf_counter_ns()
             aims = convert(final_aims=final_aims, region=data[region])  # 将截图坐标系转换为屏幕坐标系
