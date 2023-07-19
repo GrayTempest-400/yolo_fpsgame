@@ -266,35 +266,14 @@ def loop(data):
 
                     # 分别敌我
 
-                    img1 = ImageGrab.grab(box)
-                    img1.save('screenshot.png')
-
-                    img1 = cv2.imread('screenshot.png')
-
-                    hsv = cv2.cvtColor(img1, cv2.COLOR_BGR2HSV)
-
-                    # define range of blue color in HSV
-                    lower_blue = np.array([54, 83, 179])
-                    upper_blue = np.array([54, 83, 179])
-
-                    # define range of green color in HSV
-                    lower_green = np.array([34, 255, 0])
-                    upper_green = np.array([34, 255, 0])
-
-                    # Threshold the HSV image to get only blue colors
-                    mask_blue = cv2.inRange(hsv, lower_blue, upper_blue)
-
-                    # Threshold the HSV image to get only green colors
-                    mask_green = cv2.inRange(hsv, lower_green, upper_green)
-
-                    if data[pidc] and cv2.countNonZero(mask_green) == 0 and cv2.countNonZero(mask_blue) == 0:
+                    if data[pidc] :
                         if data[debug]:  # 用于绘图
                             times.append(time.time())
                             targets.append(0)
                             distances.append(x)
                         px = -int(pidx(x))
                         move(px, y)
-                    elif cv2.countNonZero(mask_green) == 0 and cv2.countNonZero(mask_blue) == 0:
+                    else:
                         ax = int(x * data[ads])
                         ay = int(y * data[ads])
                         move(ax, ay)
