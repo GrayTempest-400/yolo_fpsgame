@@ -128,9 +128,9 @@ def convert(final_aims,region):
     return lst
 
 
-def detect(img,show):
+def detect(img,show_init):
     model = YOLO(weights)
-    results = model(img, show = init[show],verbose=False)
+    results = model(img, show = show_init,verbose=False)
 
 
     aims = []
