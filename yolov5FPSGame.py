@@ -151,14 +151,7 @@ def loop(data):
     def move(x: int, y: int):
         if (x == 0) & (y == 0):
             return
-        screen_width, screen_height = pyautogui.size()
-        center_x = screen_width // 2
-        center_y = screen_height // 2
-
-        # 计算屏幕中心到目标点的相对位移
-        x_offset = x - center_x
-        y_offset = y - center_y
-        driver.moveR(x_offset, y_offset, True)
+        driver.moveR(x, y, True)
 
     def inner(point):
         """
