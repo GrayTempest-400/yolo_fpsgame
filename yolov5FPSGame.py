@@ -223,18 +223,13 @@ def loop(data):
 
             # 找到目标
             target = follow(aims)
-            screen_width, screen_height = pyautogui.size()
-
-            # 计算屏幕中心坐标
-            center_x = screen_width // 2
-            center_y = screen_height // 2
-
-            print(f"屏幕中心坐标：({center_x}, {center_y})")
-            # 移动准星
+            
             if data[lock] and target:
                 index, clazz, conf, sc, gc, sr, gr = target
                 if inner(sc):
-                    cx, cy = data[center]
+                    screen_width, screen_height = pyautogui.size()
+                    cx = screen_width // 2
+                    cy = screen_height // 2
                     sx, sy = sc
                     x = sx - cx
                     y = sy - cy
