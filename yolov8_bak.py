@@ -250,10 +250,8 @@ def loop(data):
                         move(px, sy)
                         print(px, sy)
                     else:
-                        ax = int(sx * data[ads])
-                        ay = int(sy * data[ads])
-                        move(ax, ay)
-                        print(ax, ay)
+                        move(sx, sy)
+                        print(sx, sy)
             else:  # 用于绘图
                 if data[debug] and len(times) != 0:
                     try:
